@@ -1,6 +1,6 @@
 package Pila;
-public class PilaDinamica {
-    private NodoPila tope;
+public class PilaDinamica<t> {
+    private NodoPila<t> tope;
     private int tamano;
 
     public PilaDinamica() {
@@ -8,8 +8,8 @@ public class PilaDinamica {
         this.tamano = 0;
     }
 
-    public void push(int elemento) {
-        NodoPila nuevoNodo = new NodoPila(elemento);
+    public void push(t elemento) {
+        NodoPila<t> nuevoNodo = new NodoPila<>(elemento);
         if (tope == null) {
             tope = nuevoNodo;
         } else {
@@ -19,22 +19,22 @@ public class PilaDinamica {
         tamano++;
     }
 
-    public int pop() {
+    public t pop() {
         if (tope == null) {
             System.out.println("La pila está vacía");
-            return -1;
+            return null;
         } else {
-            int elemento = tope.getValor();
+            t elemento = tope.getValor();
             tope = tope.getSiguiente();
             tamano--;
             return elemento;
         }
     }
 
-    public int peek() {
+    public t peek() {
         if (tope == null) {
             System.out.println("La pila está vacía");
-            return -1;
+            return null;
         } else {
             return tope.getValor();
         }
@@ -44,9 +44,9 @@ public class PilaDinamica {
         return tope == null;
     }
 
-    public int search(int elemento) {
+    public int search(t elemento) {
         int posicion = -1;
-        NodoPila actual = tope;
+        NodoPila<t> actual = tope;
         int distancia = 1;
         while (actual != null) {
             if (actual.getValor() == elemento) {
@@ -64,7 +64,7 @@ public class PilaDinamica {
     }
 
     public void muestra(){
-        NodoPila aux = tope;
+        NodoPila<t> aux = tope;
         while(aux != null){
         System.out.println(aux.getValor());
         aux = aux.getSiguiente();

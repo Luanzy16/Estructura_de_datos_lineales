@@ -1,7 +1,7 @@
 package Colas;
-public class ColaDinamica {
-    private NodoCola frente;
-    private NodoCola atras;
+public class ColaDinamica<t> {
+    private NodoCola<t> frente;
+    private NodoCola<t> atras;
     private int tamano;
 
     public ColaDinamica() {
@@ -10,8 +10,8 @@ public class ColaDinamica {
         this.tamano = 0;
     }
 
-    public void enqueue(int elemento) {
-        NodoCola nuevoNodo = new NodoCola(elemento);
+    public void enqueue(t elemento) {
+        NodoCola<t> nuevoNodo = new NodoCola<>(elemento);
         if (atras == null) {
             frente = nuevoNodo;
             atras = nuevoNodo;
@@ -22,12 +22,12 @@ public class ColaDinamica {
         tamano++;
     }
 
-    public int dequeue() {
+    public t dequeue() {
         if (frente == null) {
             System.out.println("La cola está vacía");
-            return -1;
+            return null;
         } else {
-            int elemento = frente.elemento;
+            t elemento = frente.elemento;
             frente = frente.siguiente;
             if (frente == null) {
                 atras = null;
@@ -37,12 +37,12 @@ public class ColaDinamica {
         }
     }
 
-    public int peek() {
+    public t peek() {
         if (frente == null) {
             System.out.println("La cola está vacía");
-            return -1;
+            return null;
         } else {
-            int elemento = frente.elemento;
+            t elemento = frente.elemento;
             return elemento;
         }
     }
@@ -51,9 +51,9 @@ public class ColaDinamica {
         return frente == null;
     }
 
-    public int search(int elemento) {
+    public int search(t elemento) {
         int posicion = 1;
-        NodoCola actual = frente;
+        NodoCola<t> actual = frente;
         while (actual != null) {
             if (actual.elemento == elemento) {
                 return posicion;

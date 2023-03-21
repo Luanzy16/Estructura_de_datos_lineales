@@ -1,4 +1,5 @@
 package Pila;
+
 public class PilaEstatica {
     private Object[] elementos;
     private int tope;
@@ -10,19 +11,18 @@ public class PilaEstatica {
         this.tope = -1;
     }
 
-    public Object push(Object elemento) {
+    public void push(Object elemento) {
         if (tope == capacidad - 1) {
             System.out.println("La pila está llena");
-            return null;
         } else {
-           return elementos[++tope] = elemento;
+            elementos[++tope] = elemento;
         }
     }
 
     public Object pop() {
         if (tope == -1) {
             System.out.println("La pila está vacía");
-            return -1;
+            return null;
         } else {
             return elementos[tope--];
         }

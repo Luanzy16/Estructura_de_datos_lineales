@@ -2,10 +2,10 @@ package taller1;
 
 import java.util.Scanner;
 import Pila.PilaEstatica;
-import listas.Lista;
+import listas.ListaDinamica;
 
 public class punto1 {
-    static Lista<Object> lista1 = new Lista<>();
+    static ListaDinamica<Object> lista1 = new ListaDinamica<>();
     static PilaEstatica ida = new PilaEstatica(10);
     static PilaEstatica vuelta = new PilaEstatica(10);
     static Scanner leer = new Scanner(System.in);

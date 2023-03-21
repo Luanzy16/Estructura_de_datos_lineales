@@ -1,26 +1,26 @@
 package Colas;
-public class NodoCola {
-    int elemento;
-    NodoCola siguiente;
+public class NodoCola<t> {
+    t elemento;
+    NodoCola<t> siguiente;
 
-    public NodoCola(int elemento) {
+    public NodoCola(t elemento) {
         this.elemento = elemento;
         this.siguiente = null;
     }
 
-    public int getElemento() {
+    public t getElemento() {
         return elemento;
     }
 
-    public void setElemento(int elemento) {
+    public void setElemento(t elemento) {
         this.elemento = elemento;
     }
 
-    public NodoCola getSiguiente() {
+    public NodoCola<t> getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(NodoCola siguiente) {
+    public void setSiguiente(NodoCola<t> siguiente) {
         this.siguiente = siguiente;
     }
 
